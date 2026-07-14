@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<script>
+  // Ambil /afif-sindi dari omahaksara.github.io/afif-sindi
+  const path = window.location.pathname.split('/');
+  const client = path[1]; // hasil: 'afif-sindi'
+  const to = new URLSearchParams(window.location.search).get('to');
+
+  if (client && client!== '404.html') {
+    // Langsung lempar ke repo invitation + bawa parameter
+    let url = 'https://omahaksara.github.io/invitation/?c=' + client;
+    if (to) url += '&to=' + to;
+    window.location.replace(url);
+  } else {
+    window.location.replace('/');
+  }
+</script>
+<p>Mengarahkan...</p>
+</body>
+</html>
